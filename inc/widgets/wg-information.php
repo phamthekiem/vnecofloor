@@ -29,26 +29,27 @@ class Gtid_Information_Widget extends WP_Widget {
             <?php
             $hide_label = ! empty( $instance['hide_label'] ) ? 'd-none' : '';
             $hide_icon  = ! empty( $instance['hide_icon'] ) ? 'd-none' : '';
-            if( $instance['company'] ) {
-                echo '<li class="label-company"><i class="'. $hide_icon .' fab fa-windows"></i>'. $instance['company'] .'</li>';
+
+            if( $instance['head_office'] ) {
+                echo '<li><i class="'. $hide_icon .'fa fa-building" aria-hidden="true"></i><span class="'. $hide_label .'">'. __( 'Head Office', 'shtheme' ) .':</span> '. $instance['head_office'] .'</li>';
             }
-            if( $instance['address'] ) {
-                echo '<li><i class="'. $hide_icon .' fas fa-map-marker-alt"></i><span class="'. $hide_label .'">'. __( 'Address', 'shtheme' ) .':</span> '. $instance['address'] .'</li>';
+            if( $instance['factory_no1'] ) {
+                echo '<li><i class="'. $hide_icon .'fa fa-industry" aria-hidden="true"></i><span class="'. $hide_label .'">'. __( 'Factory No. 1', 'shtheme' ) .':</span> '. $instance['factory_no1'] .'</li>';
             }
-            if( $instance['tel'] ) {
-                echo '<li><i class="'. $hide_icon .' fas fa-phone"></i><span class="'. $hide_label .'">'. __( 'Telephone', 'shtheme' ) .':</span> '. $instance['tel'] .'</li>';
+            if( $instance['factory_no2'] ) {
+                echo '<li><i class="'. $hide_icon .'fa fa-industry" aria-hidden="true"></i><span class="'. $hide_label .'">'. __( 'Factory No. 2', 'shtheme' ) .':</span> '. $instance['factory_no2'] .'</li>';
             }
-            if( $instance['hotline'] ) {
-                echo '<li><i class="'. $hide_icon .' fas fa-mobile-alt"></i><span class="'. $hide_label .'">'. __( 'Hotline', 'shtheme' ) .':</span> '. $instance['hotline'] .'</li>';
-            }
-            if( $instance['fax'] ) {
-                echo '<li><i class="'. $hide_icon .' fas fa-fax"></i><span class="'. $hide_label .'">'. __( 'Fax', 'shtheme' ) .':</span> '. $instance['fax'] .'</li>';
-            }
-            if( $instance['email'] ) {
-                echo '<li><i class="'. $hide_icon .' far fa-envelope"></i><span class="'. $hide_label .'">'. __( 'Email', 'shtheme' ) .':</span> '. $instance['email'] .'</li>';
+            if( $instance['representative_office'] ) {
+                echo '<li><i class="'. $hide_icon .'fa fa-building" aria-hidden="true"></i><span class="'. $hide_label .'">'. __( 'Representative Office', 'shtheme' ) .':</span> '. $instance['representative_office'] .'</li>';
             }
             if( $instance['website'] ) {
-                echo '<li><i class="'. $hide_icon .' fas fa-globe"></i><span class="'. $hide_label .'">'. __( 'Website', 'shtheme' ) .':</span> '. $instance['website'] .'</li>';
+                echo '<li><i class="'. $hide_icon .'fas fa-globe" aria-hidden="true"></i><span class="'. $hide_label .'">'. __( 'Website', 'shtheme' ) .':</span> '. $instance['website'] .'</li>';
+            }
+            if( $instance['email'] ) {
+                echo '<li><i class="'. $hide_icon .'far fa-envelope" aria-hidden="true"></i><span class="'. $hide_label .'">'. __( 'Email', 'shtheme' ) .':</span> '. $instance['email'] .'</li>';
+            }
+            if( $instance['hotline'] ) {
+                echo '<li><i class="'. $hide_icon .'fa fa-phone" aria-hidden="true"></i><span class="'. $hide_label .'">'. __( 'Hotline/WhatsApp/WeChat', 'shtheme' ) .':</span> '. $instance['hotline'] .'</li>';
             }
             ?>
         </ul>
@@ -64,12 +65,11 @@ class Gtid_Information_Widget extends WP_Widget {
     function form($instance) {
         $instance = wp_parse_args( 
         	(array)$instance, array(
-                'company'    => '',
-        		'title' 	 => '', 
-        		'address'    => '',  
-        		'tel' 	     => '',
-                'hotline'    => '',
-                'fax'        => '',
+        		'title' 	 => '',
+        		'head_office'    => '',
+        		'factory_no1' 	     => '',
+                'factory_no2'    => '',
+                'representative_office'        => '',
                 'email'      => '',
                 'website'    => '',
                 'hide_label' => '',
@@ -82,32 +82,32 @@ class Gtid_Information_Widget extends WP_Widget {
             <input type="text" class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php  echo $this->get_field_name('title'); ?>" value="<?php  echo esc_attr( $instance['title'] ); ?>" />
         </p>
         <p>
-            <label for="<?php  echo $this->get_field_id('company'); ?>"><?php _e('Company', 'shtheme'); ?>:</label>
-            <input type="text" class="widefat" id="<?php echo $this->get_field_id('company'); ?>" name="<?php  echo $this->get_field_name('company'); ?>" value="<?php  echo esc_attr( $instance['company'] ); ?>" />
+            <label for="<?php  echo $this->get_field_id('head_office'); ?>"><?php _e('Head Office', 'shtheme'); ?>:</label>
+            <input type="text" class="widefat" id="<?php echo $this->get_field_id('head_office'); ?>" name="<?php  echo $this->get_field_name('head_office'); ?>" value="<?php  echo esc_attr( $instance['head_office'] ); ?>" />
         </p>
         <p>
-            <label for="<?php  echo $this->get_field_id('address'); ?>"><?php _e('Address', 'shtheme'); ?>:</label>
-            <input type="text" class="widefat" id="<?php echo $this->get_field_id('address'); ?>" name="<?php  echo $this->get_field_name('address'); ?>" value="<?php  echo esc_attr( $instance['address'] ); ?>" />
+            <label for="<?php  echo $this->get_field_id('factory_no1'); ?>"><?php _e('Factory No. 1', 'shtheme'); ?>:</label>
+            <input type="text" class="widefat" id="<?php echo $this->get_field_id('factory_no1'); ?>" name="<?php  echo $this->get_field_name('factory_no1'); ?>" value="<?php  echo esc_attr( $instance['factory_no1'] ); ?>" />
         </p>
         <p>
-            <label for="<?php  echo $this->get_field_id('tel'); ?>"><?php _e('Telephone', 'shtheme'); ?>:</label>
-            <input type="text" class="widefat" id="<?php echo $this->get_field_id('tel'); ?>" name="<?php  echo $this->get_field_name('tel'); ?>" value="<?php  echo esc_attr( $instance['tel'] ); ?>" />
+            <label for="<?php  echo $this->get_field_id('factory_no2'); ?>"><?php _e('Factory No. 2', 'shtheme'); ?>:</label>
+            <input type="text" class="widefat" id="<?php echo $this->get_field_id('factory_no2'); ?>" name="<?php  echo $this->get_field_name('factory_no2'); ?>" value="<?php  echo esc_attr( $instance['factory_no2'] ); ?>" />
         </p>
         <p>
-            <label for="<?php  echo $this->get_field_id('hotline'); ?>"><?php _e('Hotline', 'shtheme'); ?>:</label>
-            <input type="text" class="widefat" id="<?php echo $this->get_field_id('hotline'); ?>" name="<?php  echo $this->get_field_name('hotline'); ?>" value="<?php  echo esc_attr( $instance['hotline'] ); ?>" />
+            <label for="<?php  echo $this->get_field_id('representative_office'); ?>"><?php _e('Representative Office', 'shtheme'); ?>:</label>
+            <input type="text" class="widefat" id="<?php echo $this->get_field_id('representative_office'); ?>" name="<?php  echo $this->get_field_name('representative_office'); ?>" value="<?php  echo esc_attr( $instance['representative_office'] ); ?>" />
         </p>
         <p>
-            <label for="<?php  echo $this->get_field_id('fax'); ?>"><?php _e('Fax', 'shtheme'); ?>:</label>
-            <input type="text" class="widefat" id="<?php echo $this->get_field_id('fax'); ?>" name="<?php  echo $this->get_field_name('fax'); ?>" value="<?php  echo esc_attr( $instance['fax'] ); ?>" />
+            <label for="<?php  echo $this->get_field_id('website'); ?>"><?php _e('Website', 'shtheme'); ?>:</label>
+            <input type="text" class="widefat" id="<?php echo $this->get_field_id('website'); ?>" name="<?php  echo $this->get_field_name('website'); ?>" value="<?php  echo esc_attr( $instance['website'] ); ?>" />
         </p>
         <p>
             <label for="<?php  echo $this->get_field_id('email'); ?>"><?php _e('Email', 'shtheme'); ?>:</label>
             <input type="text" class="widefat" id="<?php echo $this->get_field_id('email'); ?>" name="<?php  echo $this->get_field_name('email'); ?>" value="<?php  echo esc_attr( $instance['email'] ); ?>" />
         </p>
         <p>
-            <label for="<?php  echo $this->get_field_id('website'); ?>"><?php _e('Website', 'shtheme'); ?>:</label>
-            <input type="text" class="widefat" id="<?php echo $this->get_field_id('website'); ?>" name="<?php  echo $this->get_field_name('website'); ?>" value="<?php  echo esc_attr( $instance['website'] ); ?>" />
+            <label for="<?php  echo $this->get_field_id('hotline'); ?>"><?php _e('Hotline/WhatsApp/WeChat', 'shtheme'); ?>:</label>
+            <input type="text" class="widefat" id="<?php echo $this->get_field_id('hotline'); ?>" name="<?php  echo $this->get_field_name('hotline'); ?>" value="<?php  echo esc_attr( $instance['hotline'] ); ?>" />
         </p>
         <p>
             <input id="<?php echo esc_attr( $this->get_field_id( 'hide_label' ) ); ?>" type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'hide_label' ) ); ?>" value="1" <?php checked( $instance['hide_label'] ); ?>/>

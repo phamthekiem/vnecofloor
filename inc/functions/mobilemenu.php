@@ -13,7 +13,12 @@ function create_menu_mobile_style_sliding(){
     <nav id="mobilenav">
         <div class="mobilenav__inner">
             <div class="toplg">
-                <h3><?php echo __( 'MENU', 'shtheme' )?></h3>
+                <form action="<?php bloginfo('url'); ?>/" method="GET" role="form">
+                    <div class="form-group">
+                        <input type="text" name="s" class="form-control" id="" placeholder="Keywords...">
+                    </div>
+                    <button type="submit" class="btn">Search</button>
+                </form>
             </div>
             <?php 
             wp_nav_menu( array(

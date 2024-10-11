@@ -41,15 +41,31 @@ Tags: kiem.phamthe
 # Normalize
 --------------------------------------------------------------*/
 
+/*@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i&subset=vietnamese');*/
+
+@font-face {
+	font-family: Verlag;
+	src:url('lib/fonts/VerlagCondensed-Book.ttf') format('truetype');
+}
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i&subset=vietnamese');
 
 html {
 	font-size: 62.5%;
 }
 
+@media (min-width: 1200px) {
+	.container {
+		max-width: 1230px;
+	}
+}
+
 body {
+	font-family: 'Verlag', Arial, sans-serif;
+	font-size: 16px;
+}
+p {
 	font-family: 'Roboto', Arial, sans-serif;
-	font-size: 14px;
+	font-size: 15px;
 }
 
 a {
@@ -104,7 +120,7 @@ img {
 
 /* Header style 2 */
 .site-header.header-logo .logo img {
-	margin: 10px 0;
+	/*margin: 10px 0;*/
 }
 
 /* Header style 3 */
@@ -137,7 +153,7 @@ img {
 
 .main-navigation ul.menu>li>a {
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: 600;
 	padding: 0 20px;
 	line-height: 40px;
 	height: 40px;
@@ -270,7 +286,7 @@ img {
 }
 
 .site-header.header-logo .main-navigation ul.menu>li>a {
-	color: #fff;
+	color: #333333;
 	padding: 0;
 	line-height: 60px;
 	height: 60px;
@@ -281,21 +297,41 @@ img {
 # Elements
 --------------------------------------------------------------*/
 .heading {
-	margin: 0 0 20px 0;
+	margin: 0 0 35px 0;
 	padding: 0;
-	font-size: 26px;
-	color: #333333;
+	font-size: 30px;
+	color: #000;
 	font-weight: 700;
 	line-height: 40px;
+	position: relative;
+	text-align: center;
+	text-transform: uppercase;
 }
-
+.heading:before	{
+	content: "";
+	display: block;
+	position: absolute;
+	bottom: -8px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 60px;
+	height: 2px;
+    background: #9a3a34;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+}
 
 .page-title,
 h1.entry-title {
-	font-size: 22px;
+	font-size: 28px;
 	font-weight: 600;
 	color: #9a3a34;
+	text-transform: uppercase;
 	margin: 5px 0 15px 0;
+	border-bottom: 1px solid;
+	width: fit-content;
 }
 
 .page-title-bar {
@@ -1838,7 +1874,7 @@ object {
 }
 
 .site-content {
-	/* padding-top: 25px; */
+	 /*padding-top: 25px;*/
 }
 
 .home .site-content {
@@ -2154,7 +2190,7 @@ object {
 }
 
 .mobilenav__inner {
-	background: #fff;
+	background: #333333;
 	max-width: 84%;
 	position: relative;
 	height: 100%;
@@ -2191,10 +2227,18 @@ object {
 }
 
 .toplg {
-	padding: 15px 0;
+	padding: 15px 20px;
 	text-align: center;
 }
-
+.toplg form {
+	position: relative;
+}
+.toplg .form-group button.btn {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 34px;
+}
 .toplg img {
 	max-width: 75px;
 	margin: 0 auto;
@@ -2222,12 +2266,12 @@ object {
 }
 
 #mobilenav li a {
-	color: #262d33;
+	color: #fff;
 	position: relative;
 	display: block;
 	margin: 0;
 	padding: 10px 15px;
-	font-size: 15px;
+	font-size: 18px;
 	font-weight: 500;
 	/* border-bottom: solid 1px #161b1f; */
 	border-top: solid 1px #262d33;
@@ -2246,7 +2290,7 @@ object {
 
 #mobilenav .arrow {
 	position: absolute;
-	top: 0;
+	top: 3px;
 	right: 0;
 	width: 43px;
 	height: 43px;
@@ -2269,7 +2313,7 @@ object {
 	content: "\f107";
 	font-size: 18px;
 	left: 43%;
-	color: #000;
+	color: #fff;
 }
 
 #mobilenav ul ul.sub-menu li a {
@@ -2284,7 +2328,7 @@ object {
     top: 18px;
     width: 4px;
     height: 4px;
-    background: #262d33;
+    background: #fff;
 }
 #mobilenav ul>li.menu-item-has-children.open>.arrow:before {
 	content: "\f106";
@@ -2320,7 +2364,7 @@ object {
 
 #showmenu {
 	position: absolute;
-	top: 35px;
+	top: 12px;
 	right: 15px;
 	z-index: 5;
 }
@@ -2453,16 +2497,16 @@ object {
 ## Footer 
 --------------------------------------------------------------*/
 .site-footer {
-	color: #262d33;
+	color: #fff;
 }
 
 .site-footer a {
-	color: #262d33;
+	color: #fff;
 }
 
 .footer-widgets {
 	padding: 40px 0 20px 0;
-	background: #fafafa;
+	background: rgba(56,56,56,1);
 }
 
 .footer-widgets h2.widgettitle {
@@ -2500,8 +2544,9 @@ object {
 }
 
 .site-info {
-	padding: 10px 0;
+	padding: 5px 0;
 	border-top: 1px solid #ddd;
+	color: #000;
 }
 
 .site-info p {

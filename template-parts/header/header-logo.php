@@ -33,7 +33,7 @@ global $sh_option;
 				</span>
 			</a>
 			<div class="row align-items-center">
-				<div class="col-xl-3 col-lg-2">
+				<div class="col-xl-3 col-lg-2 col-7">
 					<div class="logo">
 						<?php display_logo();?>
 					</div>

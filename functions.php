@@ -193,9 +193,9 @@ function shtheme_lib_scripts(){
 	wp_localize_script(	'main-js', 'ajax', array( 'url' => admin_url('admin-ajax.php') ) );
 
 	// Slick Slider
-	wp_register_script( 'slick-js', SH_DIR . '/lib/js/slick.min.js', array('jquery'), '1.8.1', true );
-	wp_register_style( 'slick-style', SH_DIR .'/lib/css/slick/slick.css' );
-	wp_register_style( 'slick-theme-style', SH_DIR .'/lib/css/slick/slick-theme.css' );
+	wp_enqueue_script( 'slick-js', SH_DIR . '/lib/js/slick.min.js', array('jquery'), '1.8.1', true );
+	wp_enqueue_style( 'slick-style', SH_DIR .'/lib/css/slick/slick.css' );
+	wp_enqueue_style( 'slick-theme-style', SH_DIR .'/lib/css/slick/slick-theme.css' );
 
 	// Font Awesome
 	wp_enqueue_style( 'fontawesome-style', SH_DIR .'/lib/css/font-awesome-all.css' );
@@ -234,3 +234,17 @@ function remove_head_scripts() {
 **/
 add_image_size( 'sh_thumb300x200', 300, 200, array( 'center', 'center' ) );
 
+//SMTP
+add_action( 'phpmailer_init', function( $phpmailer ) {
+    if ( !is_object( $phpmailer ) )
+    $phpmailer = (object) $phpmailer;
+    $phpmailer->Mailer     = 'smtp';
+    $phpmailer->Host       = 'smtp.gmail.com';
+    $phpmailer->SMTPAuth   = 1;
+    $phpmailer->Port       = 587;
+    $phpmailer->Username   = 'phamthekiem193@gmail.com';
+    $phpmailer->Password   = 'dsdthbcfklatrjkg';
+    $phpmailer->SMTPSecure = 'TLS';
+    $phpmailer->From       = 'phamthekiem193@gmail.com';
+    $phpmailer->FromName   = 'Vn Ecofloor';
+});

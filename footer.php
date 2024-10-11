@@ -30,11 +30,8 @@ do_action( 'sh_after_content_sidebar_wrap' );
 			<div class="container">
 				<div class="wrap">
 					<div class="row">
-						<div class="col-sm-6">
+						<div class="col-sm-12 text-center">
 							<?php if( $sh_option['footer-copyright'] ) : echo $sh_option['footer-copyright'];endif;?>
-						</div>
-						<div class="col-sm-6 text-right">
-							
 						</div>
 					</div>
 				</div>
@@ -45,6 +42,20 @@ do_action( 'sh_after_content_sidebar_wrap' );
 	</footer><!-- #colophon -->
 
 	<?php do_action( 'sh_after_footer' );?>
+
+    <section class="supports-group">
+        <a href="https://wa.me/<?php echo $sh_option['whatsapp-number'] ?>" target="_blank" class="support-item" title="Whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="" target="_blank" class="support-item wechat" title="Wechat" data-toggle="modal" data-target="#wechatModalCenter">
+            <i class="fab fa-weixin"></i>
+        </a>
+        <a href="<?php echo $sh_option['fb-messenger'] ?>" target="_blank" class="support-item" title="Fanpage Facebook">
+            <i class="fab fa-facebook-messenger"></i>
+        </a>
+
+
+    </section>
 	
 </div><!-- #page -->
 

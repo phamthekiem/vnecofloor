@@ -317,6 +317,12 @@ Redux::setSection( $opt_name, array(
     'subsection'       => true,
     'fields'           => array(
         array(
+            'id'         => 'video-banner',
+            'type'       => 'media',
+            'title'      => __('Video Background', 'shtheme'),
+        ),
+
+        array(
             'id'        => 'home-slide-switch',
             'type'      => 'switch',
             'title'     => __('Enable gallery slider', 'shtheme'),
@@ -846,9 +852,24 @@ Redux::setSection( $opt_name, array(
     'icon'             => 'el el-info-circle',
     'fields'           => array(
         array(
-            'id'        =>'information-phone',
+            'id'        => 'information-phone',
             'type'      => 'text',
             'title'     => __('Telephone number', 'shtheme'),
+        ),
+        array(
+            'id'        => 'whatsapp-number',
+            'type'      => 'text',
+            'title'     => __('Whatsapp number', 'shtheme'),
+        ),
+        array(
+            'id'        => 'fb-messenger',
+            'type'      => 'text',
+            'title'     => __('FB Messenger', 'shtheme'),
+        ),
+        array(
+            'id'        => 'wechat-qr',
+            'type'      => 'media',
+            'title'     => __('Wechat QR', 'shtheme'),
         ),
         array(
             'id'        =>'information-email',

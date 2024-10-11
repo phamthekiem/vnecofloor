@@ -31,14 +31,10 @@ get_header(); ?>
 					<?php endif;?>
 
 					<div class="entry-content">
-						<?php if( $sh_option['information-map'] ) : ?>
-							<div class="embed-responsive embed-responsive-21by9 mb-5">
-								<?php echo $sh_option['information-map'];?>
-							</div>
-						<?php endif; ?>
+
 						<div class="row">
-							<div class="col-sm-6">
-								<?php echo do_shortcode( '[contact-form-7 id="156" title="Liên hệ"]' );?>
+							<div class="col-sm-6 formContact">
+								<?php echo do_shortcode( '[contact-form-7 id="cdbfe39" title="Contact"]' );?>
 							</div>
 							<div class="col-sm-6">
 								<?php
@@ -46,6 +42,11 @@ get_header(); ?>
 								?>
 							</div>
 						</div>
+                        <?php if( $sh_option['information-map'] ) : ?>
+                            <div class="embed-responsive embed-responsive-21by9 mb-5">
+                                <?php echo $sh_option['information-map'];?>
+                            </div>
+                        <?php endif; ?>
 					</div><!-- .entry-content -->
 					
 				</article><!-- #post-## -->
